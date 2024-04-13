@@ -17,6 +17,13 @@ function Landing() {
         <Discoballs speed={1} />
       </Suspense>
       <Overlay />
+      <div id="page-landing">
+        <div className="content-wrapper">
+          <Link to="/raves" className="enter-app">
+            <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
