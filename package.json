@@ -2,7 +2,11 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
+    "@react-three/drei": "^9.105.3",
+    "@react-three/fiber": "^8.16.1",
+    "@react-three/postprocessing": "^2.16.2",
     "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.1",
@@ -19,6 +23,7 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.21.1",
     "react-select": "^5.8.0",
+    "three": "^0.163.0",
     "typescript": "^5.3.3",
     "vite": "^5.0.10",
     "vite-plugin-svgr": "^4.2.0",
@@ -55,6 +60,7 @@
     "@types/react-leaflet": "^2.8.3",
     "@types/react-router-dom": "^5.3.3",
     "@types/react-select": "^5.0.0",
+    "@types/three": "^0.163.0",
     "@vitest/coverage-v8": "^1.1.0",
     "jsdom": "^23.0.1",
     "vitest": "^1.1.0"
