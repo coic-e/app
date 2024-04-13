@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   Navigate,
+  createRoutesFromElements
 } from "react-router-dom";
 import {
   Landing,
@@ -40,7 +41,6 @@ export const router = createBrowserRouter([
     element: <Navigate to="/" />,
   },
 ]);
-
 
 
 
