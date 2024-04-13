@@ -28,7 +28,6 @@ function CollectivesMap() {
     {
       id: 2,
       latitude: -13.702797,
-
       longitude: -50.6865109,
       name: "Teste",
     },
@@ -53,6 +52,11 @@ function CollectivesMap() {
             Você sabia que são mais de 260 atores que compõem nosso cenário?
           </p>
         </header>
+        {/* <footer>
+          <strong>Porto Alegre</strong>
+          <br />
+          <span>Rio Grande do Sul</span>
+        </footer> */}
       </aside>
 
       <MapContainer

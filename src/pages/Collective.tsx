@@ -28,32 +28,53 @@ interface ICollective {
 
 interface CollectiveParams {
   id: string;
+  [key: string]: string | undefined;
 }
 
+
 function Collective() {
-  interface CollectiveParams {
-    id: string;
-    [key: string]: string | undefined;
-  }
+
 
   const params = useParams<CollectiveParams>();
-  const [collective, setCollective] = useState<ICollective>();
+  // const [collective, setCollective] = useState<ICollective>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  useEffect(() => {
-    api
-      .get(`collectives/${params.id}`)
-      .then((response) => {
-        const collective = response.data;
-        if (collective) {
-          setCollective(collective);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching collective:", error);
-        // You can set some state to show an error message to the user
-      });
-  }, [params.id]);
+  const collective: ICollective = {
+    id: 1,
+    latitude: -13.702797,
+    longitude: -50.6865109,
+    name: "Teste",
+    type: "Coletivo",
+    about: "Teste",
+    email: "teste@teste.com",
+    social: "teste",
+    city: "teste",
+    uf: "teste",
+    images: [
+      {
+        id: 1,
+        url: "https://images.unsplash.com/photo-1611095782547-0b3b9b2c1d6b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZXRpdmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+      },
+      {
+        id: 2,
+        url: "https://images.unsplash.com/photo-1611095782547-0b3b9b2c1d6b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sZXRpdmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
+      },
+    ],
+  };
+  // useEffect(() => {
+  //   api
+  //     .get(`collectives/${params.id}`)
+  //     .then((response) => {
+  //       const collective = response.data;
+  //       if (collective) {
+  //         setCollective(collective);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching collective:", error);
+  //       // You can set some state to show an error message to the user
+  //     });
+  // }, [params.id]);
 
   if (!collective) {
     return <h4>Buscando informações do coletivo...</h4>;
