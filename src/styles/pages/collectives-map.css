@@ -109,3 +109,35 @@
 #page-map .map-popup .leaflet-popup-tip-container {
   display: none;
 }
+
+@media(max-width: 1024px){
+  #page-map{
+      flex: 1;
+  }   
+
+  #page-map aside{
+      display: none;
+  }
+
+  #page-map .create-collective{
+      right: 20px;
+      bottom: 20px;
+  }
+}
+
+@media(max-width: 300px){
+  #page-map aside footer{
+      position: absolute;
+      left: 60%;
+      top: 0.3em;
+      line-height: 1em;
+  }
+
+  #page-map aside footer strong{
+      font-size: 0.8em;
+  }
+
+  #page-map aside footer span{
+      font-size: 0.65em;
+  }
+}
