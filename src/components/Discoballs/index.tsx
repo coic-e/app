@@ -75,17 +75,17 @@ function Discoball({ index, z, speed }: IDiscoballProps) {
     <Detailed ref={ref} distances={[0, 1, 80]}>
       <mesh
         scale={1}
-        geometry={nodes.discoball.geometry}
+        geometry={(nodes.discoball as THREE.Mesh).geometry}
         material={materials.texture}
       />
       <mesh
         scale={1}
-        geometry={nodes.discoball.geometry}
+        geometry={(nodes.discoball as THREE.Mesh).geometry}
         material={materials.texture}
       />
       <mesh
         scale={1}
-        geometry={nodes.discoball.geometry}
+        geometry={(nodes.discoball as THREE.Mesh).geometry}
         material={materials.texture}
       />
     </Detailed>
