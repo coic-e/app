@@ -25,8 +25,16 @@ export const Container = styled.div`
     margin: 0 0 0.05em 0;
     font-family: "Ayer Poster", serif;
     font-weight: 400;
-    font-size: min(18vw, 14em);
+    font-size: min(18vw, 20em);
     line-height: 0.85em;
+  }
+
+  & p {
+    font-family: "Ayer Poster", serif;
+    margin: 0;
+    font-weight: 400;
+    font-size: 2em;
+    line-height: 1.5em;
   }
 `;
 
