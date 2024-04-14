@@ -8,14 +8,15 @@ export default function Overlay() {
       <TopCenter>
         <h1>MAPA DE RAVE</h1>
         <p>Descubra a Batida do Underdroung</p>
-        <div>
-          Seja bem-vindo à nossa família rave! No Mapa de Rave, você não apenas
-          encontra festas; você descobre portais para experiências inesquecíveis
-          onde a batida da música eletrônica pulsa em harmonia com seu espírito
-          aventureiro.
-        </div>
+        <p>
+          Seja bem-vindo à nossa família rave! No Mapa de Rave, você não apenas encontra festas;
+        </p>
+        <p>
+          Você descobre portais para experiências inesquecíveis onde a batida da
+          música eletrônica pulsa em harmonia com seu espírito aventureiro.
+        </p>
         <Button>
-          <Link to="/raves" >
+          <Link to="/raves">
             <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
           </Link>
         </Button>

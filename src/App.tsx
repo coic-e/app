@@ -8,11 +8,6 @@ import GlobalStyles from "./styles/global";
 function App() {
   return (
     <>
-      <MeshGradientRenderer
-        id="gradient-container"
-        className="gradient"
-        colors={["#C3E4FF", "#6EC3F4", "#EAE2FF", "#B9BEFF", "#B3B8F9"]}
-      />
       <RouterProvider router={router} />
       <GlobalStyles />
     </>

@@ -117,7 +117,7 @@ export default function Discoballs({
         <DepthOfField
           target={[0, 0, 60]}
           focalLength={0.4}
-          bokehScale={10}
+          bokehScale={5}
           height={700}
         />
       </EffectComposer>
