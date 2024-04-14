@@ -9,21 +9,15 @@ import { extend } from "@react-three/fiber";
 import { ACESFilmicToneMapping, SRGBColorSpace } from "three";
 import Discoballs from "../components/Discoballs";
 import Overlay from "../components/Overlay";
+import { Cube } from "../components/Cube";
 
 function Landing() {
   return (
     <>
       <Suspense fallback={null}>
-        <Discoballs speed={1} />
+        <Discoballs />
       </Suspense>
-      <Overlay />
-      <div id="page-landing">
-        <div className="content-wrapper">
-          <Link to="/raves" className="enter-app">
-            <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />
-          </Link>
-        </div>
-      </div>
+      <Overlay />      
     </>
   );
 }
