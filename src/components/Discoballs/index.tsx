@@ -105,7 +105,7 @@ export default function Discoballs({
       dpr={[1, 1.5]}
       camera={{ position: [0, 0, 10], fov: 20, near: 0.01, far: depth + 15 }}
     >
-      <color attach="background" args={["#c7a7a7"]} />
+
       {/* Using cubic easing here to spread out objects a little more interestingly, i wanted a sole big object up front ... */}
       {Array.from(
         { length: count },
@@ -117,7 +117,7 @@ export default function Discoballs({
         <DepthOfField
           target={[0, 0, 60]}
           focalLength={0.4}
-          bokehScale={14}
+          bokehScale={10}
           height={700}
         />
       </EffectComposer>

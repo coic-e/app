@@ -60,6 +60,15 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(1);
 }
+
+#gradient-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index: -1; */
+}
  `;
 
 export default GlobalStyles;
