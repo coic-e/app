@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@johnn-e/react-mesh-gradient": "^1.1.1",
     "@react-three/drei": "^9.105.3",
     "@react-three/fiber": "^8.16.1",
     "@react-three/postprocessing": "^2.16.2",
