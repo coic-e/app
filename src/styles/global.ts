@@ -16,6 +16,7 @@ src: local(""),
 font-weight: 500;
 font-style: normal;
 }
+
 *{
   margin: 0;
   padding: 0;
