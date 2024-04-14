@@ -30,7 +30,7 @@ function Discoball({ index, z, speed }: IDiscoballProps) {
   // It can automatically handle draco and meshopt-compressed assets without you having to
   // worry about binaries and such ...
   // const { nodes, materials } = useGLTF("/banana-v1-transformed.glb");
-  const { nodes, materials } = useGLTF("/ferradura-v1-v2-transformed.glb");
+  const { nodes, materials } = useGLTF("/disco_ball_novo-v1.glb");
   // By the time we're here the model is loaded, this is possible through React suspense
   // Local component state, it is safe to mutate because it's fixed data
   const [data] = useState({
@@ -70,25 +70,23 @@ function Discoball({ index, z, speed }: IDiscoballProps) {
 
   // Using drei's detailed is a nice trick to reduce the vertex count because
   // we don't need high resolution for objects in the distance. The model contains 3 decimated meshes ...
+  
   return (
-    <Detailed ref={ref} distances={[0, 65, 80]}>
+    <Detailed ref={ref} distances={[0, 1, 80]}>
       <mesh
-        scale={0.1}
-        geometry={nodes.Horse_Shoe_lambert2_0.geometry}
-        material={materials.lambert2}
-        material-emissive="#F103E5"
+        scale={1}
+        geometry={nodes.discoball.geometry}
+        material={materials.texture}
       />
       <mesh
-        scale={0.1}
-        geometry={nodes.Horse_Shoe_lambert2_0.geometry}
-        material={materials.lambert2}
-        material-emissive="#F103E5"
+        scale={1}
+        geometry={nodes.discoball.geometry}
+        material={materials.texture}
       />
       <mesh
-        scale={0.1}
-        geometry={nodes.Horse_Shoe_lambert2_0.geometry}
-        material={materials.lambert2}
-        material-emissive="#F103E5"
+        scale={1}
+        geometry={nodes.discoball.geometry}
+        material={materials.texture}
       />
     </Detailed>
   );
@@ -96,7 +94,7 @@ function Discoball({ index, z, speed }: IDiscoballProps) {
 
 export default function Discoballs({
   speed = 1,
-  count = 80,
+  count = 100,
   depth = 80,
   easing = (x: number) => Math.sqrt(1 - Math.pow(x - 1, 2)),
 }) {
@@ -107,13 +105,7 @@ export default function Discoballs({
       dpr={[1, 1.5]}
       camera={{ position: [0, 0, 10], fov: 20, near: 0.01, far: depth + 15 }}
     >
-      <color attach="background" args={["#F103E5"]} />
-      <spotLight
-        position={[10, 20, 10]}
-        penumbra={1}
-        intensity={3}
-        color="orange"
-      />
+      <color attach="background" args={["#c7a7a7"]} />
       {/* Using cubic easing here to spread out objects a little more interestingly, i wanted a sole big object up front ... */}
       {Array.from(
         { length: count },
