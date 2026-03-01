@@ -98,6 +98,17 @@
 .organization-details .organization-details-content .map-container .leaflet-container {
   border-bottom: 1px solid #dde3f0;
   border-radius: 20px;
+  background: #1a1a1a;
+}
+
+.organization-details .organization-details-content .map-container .leaflet-pane,
+.organization-details .organization-details-content .map-container .leaflet-tile-pane,
+.organization-details .organization-details-content .map-container .leaflet-tile-container {
+  background: #1a1a1a;
+}
+
+.organization-details .organization-details-content .map-container .leaflet-tile {
+  background: #1a1a1a;
 }
 
 .organization-details .organization-details-content hr {

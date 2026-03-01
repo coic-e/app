@@ -27,7 +27,7 @@ interface IOrganization {
   }>;
 }
 
-interface OrganizationParams {
+interface OrganizationParams extends Record<string, string | undefined> {
   id: string;
 }
 

@@ -2,7 +2,7 @@
 /* SPDX-License-Identifier: MIT */
 import { useRouteError } from "react-router-dom";
 
-export default function RootError(): JSX.Element {
+export default function RootError(): React.JSX.Element {
   const err = useRouteError() as RouteError;
 
   return (

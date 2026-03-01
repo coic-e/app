@@ -47,6 +47,17 @@
 
 #page-map .leaflet-container {
   z-index: 5;
+  background: #1a1a1a;
+}
+
+#page-map .leaflet-pane,
+#page-map .leaflet-tile-pane,
+#page-map .leaflet-tile-container {
+  background: #1a1a1a;
+}
+
+#page-map .leaflet-tile {
+  background: #1a1a1a;
 }
 
 #page-map .create-organization {
