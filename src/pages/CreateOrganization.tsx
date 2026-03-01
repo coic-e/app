@@ -158,6 +158,10 @@ function CreateOrganization() {
           <fieldset>
             <legend>Dados</legend>
 
+            <div className="map-instruction">
+              <p>Clique no mapa para marcar a localização</p>
+            </div>
+
             <MapContainer
               center={[-30.0313778, -51.2256725]}
               zoom={16}
@@ -205,17 +209,16 @@ function CreateOrganization() {
               />
             </div>
 
-            <div className="input-block">
-              <div className="input-block select">
-                <label htmlFor="uf">UF</label>
-                <select id="uf" name="uf" value={formData.uf} onChange={handleInputChange}>
-                  {optionsUf.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className="input-block select">
+              <label htmlFor="uf">UF</label>
+              <select id="uf" name="uf" value={formData.uf} onChange={handleInputChange}>
+                <option value="">Selecione o estado</option>
+                {optionsUf.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="input-block">
@@ -223,22 +226,21 @@ function CreateOrganization() {
               <input id="city" name="city" value={formData.city} onChange={handleInputChange} />
             </div>
 
-            <div className="input-block">
-              <div className="input-block select">
-                <label htmlFor="rave-type">Tipo</label>
-                <select
-                  id="rave-type"
-                  name="rave-type"
-                  value={formData.type}
-                  onChange={handleInputChange}
-                >
-                  {raveTypeOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div className="input-block select">
+              <label htmlFor="type">Tipo</label>
+              <select
+                id="type"
+                name="type"
+                value={formData.type}
+                onChange={handleInputChange}
+              >
+                <option value="">Selecione o tipo</option>
+                {raveTypeOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div className="input-block">
@@ -248,9 +250,9 @@ function CreateOrganization() {
                 {previewImages.map((image, index) => {
                   return (
                     <div key={image} className="image-item">
-                      <img key={image} src={image} alt={formData.name} />
-                      <button onClick={() => handleDeleteImage(index)}>
-                        <FiXSquare color="#000" />
+                      <img src={image} alt={formData.name} />
+                      <button type="button" onClick={() => handleDeleteImage(index)}>
+                        <FiXSquare size={20} color="#ff3333" />
                       </button>
                     </div>
                   );
