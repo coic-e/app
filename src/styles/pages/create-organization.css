@@ -8,7 +8,7 @@
 #page-create-organization {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: #FFFEF9;
 }
 
 #page-create-organization main {
@@ -55,7 +55,7 @@ form.create-organization-form fieldset legend {
 
   font-size: 2rem;
   line-height: 1.2;
-  color: var(--primary-color);
+  color: #1a1a1a;
   font-weight: 700;
 
   border-bottom: 2px solid #d3e2e5;
@@ -64,8 +64,8 @@ form.create-organization-form fieldset legend {
 }
 
 form.create-organization-form .map-instruction {
-  background: #EFF6FF;
-  border-left: 4px solid var(--primary-color);
+  background: #f5f5f5;
+  border-left: 4px solid #1a1a1a;
   padding: 1rem 1.25rem;
   margin-bottom: 1rem;
   border-radius: 8px;
@@ -73,7 +73,7 @@ form.create-organization-form .map-instruction {
 
 form.create-organization-form .map-instruction p {
   margin: 0;
-  color: #2563EB;
+  color: #4a4a4a;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -110,9 +110,9 @@ form.create-organization-form .input-block textarea {
 
 form.create-organization-form .input-block input:focus,
 form.create-organization-form .input-block textarea:focus {
-  border-color: var(--primary-color);
+  border-color: #1a1a1a;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
 }
 
 form.create-organization-form .input-block input {
@@ -145,7 +145,7 @@ form.create-organization-form .input-block .images-container img {
 form.create-organization-form .input-block .images-container .new-image {
   height: 96px;
   background: #f5f8fa;
-  border: 2px dashed var(--primary-color);
+  border: 2px dashed #1a1a1a;
   border-radius: 12px;
   cursor: pointer;
 
@@ -157,8 +157,8 @@ form.create-organization-form .input-block .images-container .new-image {
 }
 
 form.create-organization-form .input-block .images-container .new-image:hover {
-  background: #EFF6FF;
-  border-color: var(--hover-color);
+  background: #e5e5e5;
+  border-color: #000000;
 }
 
 form.create-organization-form .input-block input[type="file"] {
@@ -200,7 +200,7 @@ form.create-organization-form button.confirm-button {
   height: 56px;
   border: 0;
   cursor: pointer;
-  background: var(--primary-color);
+  background: #1a1a1a;
   border-radius: 12px;
   color: #ffffff;
   font-weight: 700;
@@ -211,7 +211,7 @@ form.create-organization-form button.confirm-button {
   align-items: center;
 
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 form.create-organization-form button.confirm-button svg {
@@ -219,9 +219,9 @@ form.create-organization-form button.confirm-button svg {
 }
 
 form.create-organization-form button.confirm-button:hover {
-  background: var(--hover-color);
+  background: #000000;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 form.create-organization-form button.confirm-button:active {
@@ -295,9 +295,9 @@ form.create-organization-form .input-block .radio-container {
 }
 
 .input-block.select select:focus {
-  border-color: var(--primary-color);
+  border-color: #1a1a1a;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.1);
   outline: none;
 }
 

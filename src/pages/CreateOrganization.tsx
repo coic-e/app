@@ -259,7 +259,7 @@ function CreateOrganization() {
                 })}
 
                 <label htmlFor="image[]" className="new-image">
-                  <FiPlus size={24} color="#15b6d6" />
+                  <FiPlus size={24} color="#1a1a1a" />
                 </label>
               </div>
               <input multiple onChange={handleSelectedImage} type="file" id="image[]" />

@@ -8,7 +8,7 @@
 #page-map {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: #FFFEF9;
   position: relative;
   display: flex;
 }
@@ -22,9 +22,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
-
-  background: url("../../images/discoball.svg") no-repeat center top 2rem;
-  background-size: 180px auto;
+  background: #FFFEF9;
 }
 
 #page-map aside h2 {
@@ -32,16 +30,16 @@
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
-  color: var(--secondary-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin-top: 200px;
+  color: #1a1a1a;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-top: 0;
 }
 
 #page-map aside p {
   line-height: 1.4;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  color: var(--text-color);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #4a4a4a;
+  text-shadow: none;
   margin: 0;
 }
 
@@ -70,21 +68,31 @@
 
   width: 64px;
   height: 64px;
-  background: var(--primary-color);
-  border-radius: 20px;
+  background: #1a1a1a;
+  border-radius: 32px;
+  border: 2px solid #1a1a1a;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #page-map .create-organization:hover {
-  background: var(--hover-color);
-  transform: scale(1.1) translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  background: #ffffff;
+  border-color: #1a1a1a;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#page-map .create-organization svg {
+  transition: all 0.3s ease;
+}
+
+#page-map .create-organization:hover svg {
+  color: #1a1a1a !important;
 }
 
 #page-map .map-popup .leaflet-popup-content-wrapper {
@@ -110,8 +118,8 @@
   width: 40px;
   height: 40px;
   min-width: 40px;
-  background: var(--primary-color);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border-radius: 12px;
 
   display: flex;
@@ -122,9 +130,9 @@
 }
 
 #page-map .map-popup .leaflet-popup-content a:hover {
-  background: var(--hover-color);
+  background: #000000;
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 #page-map .map-popup .leaflet-popup-tip-container {

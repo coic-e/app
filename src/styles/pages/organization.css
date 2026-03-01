@@ -91,8 +91,9 @@
 
 .organization-details .organization-details-content .map-container footer a {
   line-height: 24px;
-  color: #0089a5;
+  color: #1a1a1a;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .organization-details .organization-details-content .map-container .leaflet-container {
@@ -126,7 +127,7 @@
   height: 64px;
   border: 0;
   cursor: pointer;
-  background: #e34edd;
+  background: #1a1a1a;
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -135,9 +136,12 @@
   justify-content: center;
   align-items: center;
 
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .organization-details .organization-details-content button.contact-button:hover {
-  background: #ff9696;
+  background: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
