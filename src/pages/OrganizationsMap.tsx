@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { FiPlus, FiArrowRight } from "react-icons/fi";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
@@ -71,10 +71,10 @@ function OrganizationsMap() {
   }, []);
 
   // Update icon when zoom changes
-  const handleZoomChange = (newZoom: number) => {
+  const handleZoomChange = useCallback((newZoom: number) => {
     setZoom(newZoom);
     setMapIcon(createScaledIcon(newZoom));
-  };
+  }, []);
 
   return (
     <div id="page-map">

@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #00d4ff;
-  --secondary-color: #ab1818;
+  --primary-color: #3B82F6;
+  --secondary-color: #EF4444;
   --text-color: #fff;
-  --hover-color: rgb(0, 195, 255);
+  --hover-color: #60A5FA;
 }
 
 #page-create-organization {
@@ -64,7 +64,7 @@ form.create-organization-form fieldset legend {
 }
 
 form.create-organization-form .map-instruction {
-  background: #e8f4f8;
+  background: #EFF6FF;
   border-left: 4px solid var(--primary-color);
   padding: 1rem 1.25rem;
   margin-bottom: 1rem;
@@ -73,7 +73,7 @@ form.create-organization-form .map-instruction {
 
 form.create-organization-form .map-instruction p {
   margin: 0;
-  color: #5c8599;
+  color: #2563EB;
   font-size: 1rem;
   font-weight: 600;
 }
@@ -112,7 +112,7 @@ form.create-organization-form .input-block input:focus,
 form.create-organization-form .input-block textarea:focus {
   border-color: var(--primary-color);
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 form.create-organization-form .input-block input {
@@ -157,7 +157,7 @@ form.create-organization-form .input-block .images-container .new-image {
 }
 
 form.create-organization-form .input-block .images-container .new-image:hover {
-  background: #e8f4f8;
+  background: #EFF6FF;
   border-color: var(--hover-color);
 }
 

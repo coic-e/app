@@ -1,8 +1,8 @@
 :root {
-  --primary-color: #00d4ff;
-  --secondary-color: #ab1818;
+  --primary-color: #3B82F6;
+  --secondary-color: #EF4444;
   --text-color: #fff;
-  --hover-color: rgb(0, 195, 255);
+  --hover-color: #60A5FA;
 }
 
 aside.app-sidebar {
