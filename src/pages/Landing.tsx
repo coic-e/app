@@ -10,7 +10,7 @@ function Landing() {
       <div className="content-wrapper">
         <main>
           <h1>MAPA DE RAVE</h1>
-          <p>Descubra a Batida do Underdroung</p>
+          <p>Descubra a Batida do Underground</p>
         </main>
 
         <Link to="/raves" className="enter-app">

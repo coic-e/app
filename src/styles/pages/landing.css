@@ -10,7 +10,9 @@
   height: 100vh;
   background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   overflow: hidden;
 }
@@ -20,48 +22,48 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-
-  height: 100%;
+  gap: 3rem;
+  padding: 2rem;
 
   background: url("../../images/discoball.svg") no-repeat center top;
+  background-size: 250px auto;
+  padding-top: 280px;
 }
 
 #page-landing .content-wrapper main {
-  height: 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 #page-landing .content-wrapper main h1 {
-  margin-bottom: 2rem;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 15rem;
+  font-size: clamp(4rem, 12vw, 10rem);
   font-weight: 900;
-  line-height: 70px;
+  line-height: 0.9;
   color: var(--text-color);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
 #page-landing .content-wrapper main p {
   font-family: "Nunito Sans", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 5rem;
-  line-height: 34px;
-
-  padding-top: 1rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.3;
+  color: var(--text-color);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0;
 }
 
 .content-wrapper .enter-app {
   width: 80px;
   height: 80px;
-
-  margin-top: 40px;
 
   background: var(--primary-color);
   border-radius: 30px;
@@ -70,26 +72,42 @@
   align-items: center;
   justify-content: center;
 
-  transition: background-color 0.2s;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .content-wrapper .enter-app:hover {
   background: var(--hover-color);
-  transform: scale(1.05);
-  transition:
-    background-color 0.2s,
-    transform 0.2s;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 768px) {
-  #page-landing .content-wrapper main h1 {
-    font-size: 80px;
-    line-height: 50px;
+  #page-landing .content-wrapper {
+    background-size: 180px auto;
+    padding-top: 220px;
+    gap: 2rem;
   }
 
-  #page-landing .content-wrapper main p {
-    font-size: 24px;
-    line-height: 26px;
+  #page-landing .content-wrapper main {
+    gap: 1rem;
+  }
+
+  .content-wrapper .enter-app {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  #page-landing .content-wrapper {
+    background-size: 140px auto;
+    padding-top: 180px;
+    gap: 1.5rem;
+  }
+
+  .content-wrapper .enter-app {
+    width: 60px;
+    height: 60px;
   }
 }
