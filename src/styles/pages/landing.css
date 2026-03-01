@@ -8,11 +8,7 @@
 #page-landing {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-    180deg,
-    var(--primary-color) 0%,
-    var(--secondary-color) 100%
-  );
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 
   display: block;
   text-align: center;
@@ -80,13 +76,15 @@
 
 .content-wrapper .enter-app:hover {
   background: var(--hover-color);
-  transform: scale(1.05); 
-  transition: background-color 0.2s, transform 0.2s; 
+  transform: scale(1.05);
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 @media (max-width: 768px) {
   #page-landing .content-wrapper main h1 {
-    font-size: 80px; 
+    font-size: 80px;
     line-height: 50px;
   }
 

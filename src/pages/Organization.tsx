@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
-const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
 import "leaflet/dist/leaflet.css";
 
-import "../styles/pages/collective.css";
+import { env } from "../config/env";
+
+import "../styles/pages/organization.css";
 import Sidebar from "../components/Sidebar";
 import mapIcon from "../utils/mapIcon";
 import api from "../services/api";
 
-interface ICollective {
+interface IOrganization {
   id: number;
   latitude: number;
   longitude: number;
@@ -26,54 +27,46 @@ interface ICollective {
   }>;
 }
 
-interface CollectiveParams {
+interface OrganizationParams {
   id: string;
 }
 
-function Collective() {
-  interface CollectiveParams {
-    id: string;
-    [key: string]: string | undefined;
-  }
-
-  const params = useParams<CollectiveParams>();
-  const [collective, setCollective] = useState<ICollective>();
+function Organization() {
+  const params = useParams<OrganizationParams>();
+  const [organization, setOrganization] = useState<IOrganization>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     api
-      .get(`collectives/${params.id}`)
+      .get(`organizations/${params.id}`)
       .then((response) => {
-        const collective = response.data;
-        if (collective) {
-          setCollective(collective);
+        const organization = response.data;
+        if (organization) {
+          setOrganization(organization);
         }
       })
       .catch((error) => {
-        console.error("Error fetching collective:", error);
+        console.error("Error fetching organization:", error);
         // You can set some state to show an error message to the user
       });
   }, [params.id]);
 
-  if (!collective) {
-    return <h4>Buscando informações do coletivo...</h4>;
+  if (!organization) {
+    return <h4>Buscando informações da organização...</h4>;
   }
 
   return (
-    <div id="page-collective">
+    <div id="page-organization">
       <Sidebar />
 
-      {collective.id ? (
+      {organization.id ? (
         <main>
-          <div className="collective-details">
-            <img
-              src={collective.images[activeImageIndex].url}
-              alt="Coletivo Teste"
-            />
+          <div className="organization-details">
+            <img src={organization.images[activeImageIndex].url} alt="Organização" />
 
             <div className="images">
-              {collective.images &&
-                collective.images.map((image, index) => {
+              {organization.images &&
+                organization.images.map((image, index) => {
                   return (
                     <button
                       className={activeImageIndex === index ? "active" : ""}
@@ -83,19 +76,19 @@ function Collective() {
                         setActiveImageIndex(index);
                       }}
                     >
-                      <img src={image.url} alt="Coletivo Teste" />
+                      <img src={image.url} alt="Organização" />
                     </button>
                   );
                 })}
             </div>
 
-            <div className="collective-details-content">
-              <h1>{collective.name}</h1>
-              <p>{collective.about}</p>
+            <div className="organization-details-content">
+              <h1>{organization.name}</h1>
+              <p>{organization.about}</p>
 
               <div className="map-container">
                 <MapContainer
-                  center={[collective.latitude, collective.longitude]}
+                  center={[organization.latitude, organization.longitude]}
                   zoom={16}
                   style={{ width: "100%", height: 280 }}
                   dragging={false}
@@ -105,12 +98,12 @@ function Collective() {
                 >
                   <TileLayer
                     attribution='Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
-                    url={`https://api.mapbox.com/styles/v1/${VITE_USERNAME}/${VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${VITE_ACCESS_TOKEN}`}
+                    url={`https://api.mapbox.com/styles/v1/${env.VITE_USERNAME}/${env.VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${env.VITE_ACCESS_TOKEN}`}
                   />
                   <Marker
                     interactive={false}
                     icon={mapIcon}
-                    position={[collective.latitude, collective.longitude]}
+                    position={[organization.latitude, organization.longitude]}
                   ></Marker>
                 </MapContainer>
 
@@ -118,7 +111,7 @@ function Collective() {
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${collective.latitude},${collective.longitude}`}
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${organization.latitude},${organization.longitude}`}
                   >
                     Ver rotas no Google Maps
                   </a>
@@ -128,7 +121,7 @@ function Collective() {
               <hr />
 
               <h2>
-                <a href={collective.social}>Social links</a>
+                <a href={organization.social}>Social links</a>
               </h2>
               <button type="button" className="contact-button">
                 Entrar em contato
@@ -143,4 +136,4 @@ function Collective() {
   );
 }
 
-export default Collective;
+export default Organization;

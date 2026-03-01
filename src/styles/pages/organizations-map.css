@@ -8,11 +8,7 @@
 #page-map {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-    180deg,
-    var(--primary-color) 0%,
-    var(--secondary-color) 100%
-  );
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   position: relative;
   display: flex;
 }
@@ -53,7 +49,7 @@
   z-index: 5;
 }
 
-#page-map .create-collective {
+#page-map .create-organization {
   position: absolute;
 
   right: 40px;
@@ -73,7 +69,7 @@
   transition: background-color 0.2s;
 }
 
-#page-map .create-collective:hover {
+#page-map .create-organization:hover {
   background: var(--hover-color);
 }
 

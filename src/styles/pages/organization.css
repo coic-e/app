@@ -1,13 +1,13 @@
-#page-collective {
+#page-organization {
   display: flex;
   min-height: 100vh;
 }
 
-#page-collective main {
+#page-organization main {
   flex: 1;
 }
 
-.collective-details {
+.organization-details {
   width: 700px;
   margin: 64px auto;
 
@@ -18,13 +18,13 @@
   overflow: hidden;
 }
 
-.collective-details > img {
+.organization-details > img {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
 
-.collective-details .images {
+.organization-details .images {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   column-gap: 16px;
@@ -32,7 +32,7 @@
   margin: 16px 40px 0;
 }
 
-.collective-details .images button {
+.organization-details .images button {
   border: 0;
   height: 88px;
   background: none;
@@ -44,66 +44,63 @@
   opacity: 0.6;
 }
 
-.collective-details .images button.active {
+.organization-details .images button.active {
   opacity: 1;
 }
 
-.collective-details .images button img {
+.organization-details .images button img {
   width: 100%;
   height: 88px;
   object-fit: cover;
 }
 
-.collective-details .collective-details-content {
+.organization-details .organization-details-content {
   padding: 80px;
 }
 
-.collective-details .collective-details-content h1 {
+.organization-details .organization-details-content h1 {
   color: #4d6f80;
   font-size: 54px;
   line-height: 54px;
   margin-bottom: 8px;
 }
 
-.collective-details .collective-details-content h2 {
+.organization-details .organization-details-content h2 {
   color: #4d6f80;
   line-height: 54px;
   margin-bottom: 8px;
 }
 
-.collective-details .collective-details-content p {
+.organization-details .organization-details-content p {
   line-height: 28px;
   color: #5c8599;
   margin-top: 24px;
 }
 
-.collective-details .collective-details-content .map-container {
+.organization-details .organization-details-content .map-container {
   margin-top: 64px;
   background: #e6f7fb;
   border: 1px solid #b3dae2;
   border-radius: 20px;
 }
 
-.collective-details .collective-details-content .map-container footer {
+.organization-details .organization-details-content .map-container footer {
   padding: 20px 0;
   text-align: center;
 }
 
-.collective-details .collective-details-content .map-container footer a {
+.organization-details .organization-details-content .map-container footer a {
   line-height: 24px;
   color: #0089a5;
   text-decoration: none;
 }
 
-.collective-details
-  .collective-details-content
-  .map-container
-  .leaflet-container {
+.organization-details .organization-details-content .map-container .leaflet-container {
   border-bottom: 1px solid #dde3f0;
   border-radius: 20px;
 }
 
-.collective-details .collective-details-content hr {
+.organization-details .organization-details-content hr {
   width: 100%;
   height: 1px;
   border: 0;
@@ -111,7 +108,7 @@
   margin: 64px 0;
 }
 
-.collective-details .collective-details-content button.contact-button {
+.organization-details .organization-details-content button.contact-button {
   margin-top: 64px;
 
   width: 100%;
@@ -130,6 +127,6 @@
   transition: background-color 0.2s;
 }
 
-.collective-details .collective-details-content button.contact-button:hover {
+.organization-details .organization-details-content button.contact-button:hover {
   background: #ff9696;
 }

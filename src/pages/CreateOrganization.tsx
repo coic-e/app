@@ -1,11 +1,12 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { FiDelete, FiPlus, FiXSquare } from "react-icons/fi";
+import React, { ChangeEvent, useState } from "react";
+import { FiPlus, FiXSquare } from "react-icons/fi";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
-import "../styles/pages/create-collective.css";
+import "../styles/pages/create-organization.css";
 import mapIcon from "../utils/mapIcon";
 import Sidebar from "../components/Sidebar/Sidebar";
 import api from "../services/api";
-const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
+import { env } from "../config/env";
+
 interface Option {
   value: string;
   label: string;
@@ -67,9 +68,7 @@ interface FormData {
   images?: File[];
 }
 
-function CreateCollective() {
-  const history = () => {};
-
+function CreateOrganization() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     about: "",
@@ -83,21 +82,17 @@ function CreateCollective() {
     images: [],
   });
 
-  const [position, setPosition] = useState<[number, number] | null>(null);
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
 
   const handleInputChange = (
-    event: ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
   const handleMapClick = (lat: number, lng: number) => {
-    setPosition([lat, lng]);
     setFormData({
       ...formData,
       latitude: lat.toString(),
@@ -123,7 +118,7 @@ function CreateCollective() {
       data.append("images", image);
     });
 
-    await api.post("collectives", data).then((response) => {
+    await api.post("organizations", data).then(() => {
       alert("Cadastro realizado com sucesso!");
     });
   };
@@ -141,10 +136,7 @@ function CreateCollective() {
       return URL.createObjectURL(image);
     });
 
-    setPreviewImages((prevPreviewImages) => [
-      ...prevPreviewImages,
-      ...selectedImagesPreview,
-    ]);
+    setPreviewImages((prevPreviewImages) => [...prevPreviewImages, ...selectedImagesPreview]);
   };
 
   const handleDeleteImage = (index: number) => {
@@ -158,11 +150,11 @@ function CreateCollective() {
   };
 
   return (
-    <div id="page-create-collective">
+    <div id="page-create-organization">
       <Sidebar />
 
       <main>
-        <form className="create-collective-form" onSubmit={handleSubmit}>
+        <form className="create-organization-form" onSubmit={handleSubmit}>
           <fieldset>
             <legend>Dados</legend>
 
@@ -176,18 +168,13 @@ function CreateCollective() {
               <MapClickHandler onClick={handleMapClick} />
               <TileLayer
                 attribution='Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
-                url={`https://api.mapbox.com/styles/v1/${VITE_USERNAME}/${VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${VITE_ACCESS_TOKEN}`}
+                url={`https://api.mapbox.com/styles/v1/${env.VITE_USERNAME}/${env.VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${env.VITE_ACCESS_TOKEN}`}
               />
             </MapContainer>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
-              <input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-              />
+              <input id="name" name="name" value={formData.name} onChange={handleInputChange} />
             </div>
 
             <div className="input-block">
@@ -205,12 +192,7 @@ function CreateCollective() {
 
             <div className="input-block">
               <label htmlFor="email">E-mail</label>
-              <input
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-              />
+              <input id="email" name="email" value={formData.email} onChange={handleInputChange} />
             </div>
 
             <div className="input-block">
@@ -226,12 +208,7 @@ function CreateCollective() {
             <div className="input-block">
               <div className="input-block select">
                 <label htmlFor="uf">UF</label>
-                <select
-                  id="uf"
-                  name="uf"
-                  value={formData.uf}
-                  onChange={handleInputChange}
-                >
+                <select id="uf" name="uf" value={formData.uf} onChange={handleInputChange}>
                   {optionsUf.map((option) => (
                     <option key={option.value} value={option.value}>
                       {option.label}
@@ -243,12 +220,7 @@ function CreateCollective() {
 
             <div className="input-block">
               <label htmlFor="city">Cidade</label>
-              <input
-                id="city"
-                name="city"
-                value={formData.city}
-                onChange={handleInputChange}
-              />
+              <input id="city" name="city" value={formData.city} onChange={handleInputChange} />
             </div>
 
             <div className="input-block">
@@ -288,12 +260,7 @@ function CreateCollective() {
                   <FiPlus size={24} color="#15b6d6" />
                 </label>
               </div>
-              <input
-                multiple
-                onChange={handleSelectedImage}
-                type="file"
-                id="image[]"
-              />
+              <input multiple onChange={handleSelectedImage} type="file" id="image[]" />
             </div>
           </fieldset>
 
@@ -306,11 +273,7 @@ function CreateCollective() {
   );
 }
 
-function MapClickHandler({
-  onClick,
-}: {
-  onClick: (lat: number, lng: number) => void;
-}) {
+function MapClickHandler({ onClick }: { onClick: (lat: number, lng: number) => void }) {
   const [position, setPosition] = useState<[number, number] | null>(null); // To hold the position state
 
   useMapEvents({
@@ -322,9 +285,7 @@ function MapClickHandler({
     // You can also handle other map events here if needed
   });
 
-  return position ? (
-    <Marker position={position} interactive={false} icon={mapIcon} />
-  ) : null; // Render marker on click position, or nothing if not clicked yet
+  return position ? <Marker position={position} interactive={false} icon={mapIcon} /> : null; // Render marker on click position, or nothing if not clicked yet
 }
 
-export default CreateCollective;
+export default CreateOrganization;

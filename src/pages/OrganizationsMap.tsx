@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { FiPlus, FiArrowRight } from "react-icons/fi";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-const { VITE_USERNAME, VITE_STYLE_ID, VITE_ACCESS_TOKEN } = import.meta.env;
 import "leaflet/dist/leaflet.css";
 
-import "../styles/pages/collectives-map.css";
-import mapIcon from "../utils/mapIcon";
-import api from "../services/api";
+import { env } from "../config/env";
 
-interface Collective {
+import "../styles/pages/organizations-map.css";
+import mapIcon from "../utils/mapIcon";
+
+interface Organization {
   id: number;
   latitude: number;
   longitude: number;
   name: string;
 }
 
-function CollectivesMap() {
-  // const [collectives, setCollectives] = useState<Collective[]>([]);
-  const collectives: Collective[] = [
+function OrganizationsMap() {
+  // const [organizations, setOrganizations] = useState<Organization[]>([]);
+  const organizations: Organization[] = [
     {
       id: 1,
       latitude: -13.702797,
@@ -35,11 +35,11 @@ function CollectivesMap() {
   ];
 
   // useEffect(() => {
-  //   api.get("collectives").then((response) => {
-  //     const collectives = response.data;
+  //   api.get("organizations").then((response) => {
+  //     const organizations = response.data;
 
-  //     if (collectives) {
-  //       setCollectives(collectives);
+  //     if (organizations) {
+  //       setOrganizations(organizations);
   //     }
   //   });
   // }, []);
@@ -49,9 +49,7 @@ function CollectivesMap() {
       <aside>
         <header>
           <h2>Coletivos de música eletrônica no Brasil</h2>
-          <p>
-            Você sabia que são mais de 260 atores que compõem nosso cenário?
-          </p>
+          <p>Você sabia que são mais de 260 atores que compõem nosso cenário?</p>
         </header>
       </aside>
 
@@ -65,23 +63,18 @@ function CollectivesMap() {
       >
         <TileLayer
           attribution='Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
-          url={`https://api.mapbox.com/styles/v1/${VITE_USERNAME}/${VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${VITE_ACCESS_TOKEN}`}
+          url={`https://api.mapbox.com/styles/v1/${env.VITE_USERNAME}/${env.VITE_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${env.VITE_ACCESS_TOKEN}`}
         />
-        {collectives.map((collective) => {
+        {organizations.map((organization) => {
           return (
             <Marker
               icon={mapIcon}
-              position={[collective.latitude, collective.longitude]}
-              key={collective.id}
+              position={[organization.latitude, organization.longitude]}
+              key={organization.id}
             >
-              <Popup
-                closeButton={false}
-                minWidth={240}
-                maxWidth={240}
-                className="map-popup"
-              >
-                {collective.name}
-                <Link to={`/collectives/${collective.id}`}>
+              <Popup closeButton={false} minWidth={240} maxWidth={240} className="map-popup">
+                {organization.name}
+                <Link to={`/raves/${organization.id}`}>
                   <FiArrowRight size={20} color="#FFF" />
                 </Link>
               </Popup>
@@ -90,11 +83,11 @@ function CollectivesMap() {
         })}
       </MapContainer>
 
-      <Link to="/raves/create" className="create-collective">
+      <Link to="/raves/create" className="create-organization">
         <FiPlus size={32} color="#FFF" />
       </Link>
     </div>
   );
 }
 
-export default CollectivesMap;
+export default OrganizationsMap;
